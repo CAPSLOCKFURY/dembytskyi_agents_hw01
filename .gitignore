@@ -1,0 +1,15 @@
+# Environment variables
+.env
+
+task/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+.idea/
+.vscode/

@@ -1,0 +1,311 @@
+{
+  "total_steps": 19,
+  "total_time_ms": 10907,
+  "generated_at": "2026-11-18T16:21:58.294436+00:00",
+  "trajectory": [
+    {
+      "run_id": "TC-001",
+      "step_number": 1,
+      "node_name": "agent",
+      "input": "Скільки буде 25000 UAH у доларах США (USD)?",
+      "output": "Tool calls: ['convert_currency']",
+      "tool_calls": [
+        {
+          "name": "convert_currency",
+          "args": {
+            "amount": 25000,
+            "to_currency": "USD",
+            "from_currency": "UAH"
+          }
+        }
+      ],
+      "timestamp": "2026-11-18T16:19:58.429695+00:00",
+      "duration_ms": 18172,
+      "elapsed_ms": 18172
+    },
+    {
+      "run_id": "TC-001",
+      "step_number": 1,
+      "node_name": "tools",
+      "input": "convert_currency({'amount': 25000, 'to_currency': 'USD', 'from_currency': 'UAH'})",
+      "output": "25000.00 UAH = 600.00 USD (курс: 1 UAH = 0.0240 USD)",
+      "tool_calls": [
+        "convert_currency"
+      ],
+      "timestamp": "2026-11-18T16:19:58.429695+00:00",
+      "duration_ms": 0,
+      "elapsed_ms": 18172
+    },
+    {
+      "run_id": "TC-001",
+      "step_number": 2,
+      "node_name": "agent",
+      "input": "25000.00 UAH = 600.00 USD (курс: 1 UAH = 0.0240 USD)",
+      "output": "25 000 UAH за поточним курсом становлять 600 USD (за курсом 1 UAH = 0,0240 USD).",
+      "tool_calls": [],
+      "timestamp": "2026-11-18T16:20:13.641638+00:00",
+      "duration_ms": 15202,
+      "elapsed_ms": 33375
+    },
+    {
+      "run_id": "TC-002",
+      "step_number": 1,
+      "node_name": "agent",
+      "input": "Яка поточна ціна та фінансові показники акцій Apple (AAPL)?",
+      "output": "Tool calls: ['get_stock_info']",
+      "tool_calls": [
+        {
+          "name": "get_stock_info",
+          "args": {
+            "ticker": "AAPL"
+          }
+        }
+      ],
+      "timestamp": "2026-11-18T16:20:25.832176+00:00",
+      "duration_ms": 750,
+      "elapsed_ms": 750
+    },
+    {
+      "run_id": "TC-002",
+      "step_number": 1,
+      "node_name": "tools",
+      "input": "get_stock_info({'ticker': 'AAPL'})",
+      "output": "AAPL (Apple Inc.): ціна = $228.50, P/E = 34.2, дивіденди = 0.44%, сектор = Technology, рівень ризику = medium",
+      "tool_calls": [
+        "get_stock_info"
+      ],
+      "timestamp": "2026-11-18T16:20:25.843210+00:00",
+      "duration_ms": 0,
+      "elapsed_ms": 750
+    },
+    {
+      "run_id": "TC-002",
+      "step_number": 2,
+      "node_name": "agent",
+      "input": "AAPL (Apple Inc.): ціна = $228.50, P/E = 34.2, дивіденди = 0.44%, сектор = Technology, рівень ризику = medium",
+      "output": "Ось актуальна інформація та фінансові показники для акцій Apple Inc. (**AAPL**):\n\n* **Поточна ціна:** $228.50\n* **Коефіцієнт P/E:** 34.2\n* **Дивідендна дохідність:** 0.44%\n* **Сектор:** Technology (Технології)\n* **Рівень ризику:** Середній (medium)",
+      "tool_calls": [],
+      "timestamp": "2026-11-18T16:20:49.055363+00:00",
+      "duration_ms": 23219,
+      "elapsed_ms": 23969
+    },
+    {
+      "run_id": "TC-003",
+      "step_number": 1,
+      "node_name": "agent",
+      "input": "Порівняй акції Microsoft (MSFT) та NVIDIA (NVDA): яка з них дешевша за мультиплікатором P/E і має менший ризик?",
+      "output": "Tool calls: ['get_stock_info', 'get_stock_info']",
+      "tool_calls": [
+        {
+          "name": "get_stock_info",
+          "args": {
+            "ticker": "MSFT"
+          }
+        },
+        {
+          "name": "get_stock_info",
+          "args": {
+            "ticker": "NVDA"
+          }
+        }
+      ],
+      "timestamp": "2026-11-18T16:21:09.640410+00:00",
+      "duration_ms": 858,
+      "elapsed_ms": 875
+    },
+    {
+      "run_id": "TC-003",
+      "step_number": 1,
+      "node_name": "tools",
+      "input": "get_stock_info({'ticker': 'MSFT'}), get_stock_info({'ticker': 'NVDA'})",
+      "output": "MSFT (Microsoft Corp.): ціна = $445.20, P/E = 36.8, дивіденди = 0.72%, сектор = Technology, рівень ризику = low | NVDA (NVIDIA Corp.): ціна = $138.60, P/E = 52.4, дивіденди = 0.03%, сектор = Semiconductors, рівень ризику = high",
+      "tool_calls": [
+        "get_stock_info",
+        "get_stock_info"
+      ],
+      "timestamp": "2026-11-18T16:21:09.644591+00:00",
+      "duration_ms": 16,
+      "elapsed_ms": 891
+    },
+    {
+      "run_id": "TC-003",
+      "step_number": 2,
+      "node_name": "agent",
+      "input": "NVDA (NVIDIA Corp.): ціна = $138.60, P/E = 52.4, дивіденди = 0.03%, сектор = Semiconductors, рівень ризику = high",
+      "output": "Для порівняння акцій Microsoft (MSFT) та NVIDIA (NVDA) проаналізуємо їхні поточні показники:\n\n| Показник | Microsoft (MSFT) | NVIDIA (NVDA) |\n| :--- | :--- | :--- |\n| **Ціна** | $445.20 | $138.60 |\n| **P/E (Price-to-Earnings)** | **36.8** | 52.4 |\n| **Рівень ризику** | **Low (низький)** | High (високий) |\n| **Дивідендна дохідність** | 0.72% | 0.03% |\n\n### Висновки:\n\n1.  **За мультиплікатором P/E:** Акції **Microsoft (MSFT) є дешевшими** за цим показником (36.8 проти 52.4 у NVIDIA). Нижчий показн",
+      "tool_calls": [],
+      "timestamp": "2026-11-18T16:21:11.420455+00:00",
+      "duration_ms": 1765,
+      "elapsed_ms": 2657
+    },
+    {
+      "run_id": "TC-004",
+      "step_number": 1,
+      "node_name": "agent",
+      "input": "Я маю 100000 UAH. Переведи їх у USD і порахуй, скільки я накопичу за 5 років, якщо покладу цю суму в доларах під 8% річних із щомісячним поповненням 100 USD.",
+      "output": "Tool calls: ['convert_currency']",
+      "tool_calls": [
+        {
+          "name": "convert_currency",
+          "args": {
+            "amount": 100000,
+            "to_currency": "USD",
+            "from_currency": "UAH"
+          }
+        }
+      ],
+      "timestamp": "2026-11-18T16:21:17.144013+00:00",
+      "duration_ms": 4453,
+      "elapsed_ms": 4469
+    },
+    {
+      "run_id": "TC-004",
+      "step_number": 1,
+      "node_name": "tools",
+      "input": "convert_currency({'amount': 100000, 'to_currency': 'USD', 'from_currency': 'UAH'})",
+      "output": "100000.00 UAH = 2400.00 USD (курс: 1 UAH = 0.0240 USD)",
+      "tool_calls": [
+        "convert_currency"
+      ],
+      "timestamp": "2026-11-18T16:21:17.148745+00:00",
+      "duration_ms": 0,
+      "elapsed_ms": 4469
+    },
+    {
+      "run_id": "TC-004",
+      "step_number": 2,
+      "node_name": "agent",
+      "input": "100000.00 UAH = 2400.00 USD (курс: 1 UAH = 0.0240 USD)",
+      "output": "Tool calls: ['calculate_compound_interest']",
+      "tool_calls": [
+        {
+          "name": "calculate_compound_interest",
+          "args": {
+            "monthly_contribution": 100,
+            "principal": 2400,
+            "annual_rate_percent": 8,
+            "years": 5
+          }
+        }
+      ],
+      "timestamp": "2026-11-18T16:21:17.919235+00:00",
+      "duration_ms": 765,
+      "elapsed_ms": 5234
+    },
+    {
+      "run_id": "TC-004",
+      "step_number": 2,
+      "node_name": "tools",
+      "input": "calculate_compound_interest({'monthly_contribution': 100, 'principal': 2400, 'annual_rate_percent': 8, 'years': 5})",
+      "output": "Підсумок через 5 р. (ставка 8.0% річних): Фінальна сума = 10923.32 | Всього вкладено = 8400.00 | Чистий прибуток = 2523.32",
+      "tool_calls": [
+        "calculate_compound_interest"
+      ],
+      "timestamp": "2026-11-18T16:21:17.921977+00:00",
+      "duration_ms": 0,
+      "elapsed_ms": 5234
+    },
+    {
+      "run_id": "TC-004",
+      "step_number": 3,
+      "node_name": "agent",
+      "input": "Підсумок через 5 р. (ставка 8.0% річних): Фінальна сума = 10923.32 | Всього вкладено = 8400.00 | Чистий прибуток = 2523.32",
+      "output": "Ваші 100 000 UAH еквівалентні **2 400 USD** (за курсом 0.0240).\n\nЯкщо ви інвестуєте ці 2 400 USD під 8% річних із щомісячним поповненням у 100 USD протягом 5 років, ваші результати будуть такими:\n\n*   **Фінальна сума:** 10 923.32 USD\n*   **Загальна сума ваших внесків:** 8 400.00 USD\n*   **Чистий прибуток:** 2 523.32 USD",
+      "tool_calls": [],
+      "timestamp": "2026-11-18T16:21:19.052849+00:00",
+      "duration_ms": 1140,
+      "elapsed_ms": 6375
+    },
+    {
+      "run_id": "TC-005",
+      "step_number": 1,
+      "node_name": "agent",
+      "input": "Проведи комплексний фінансовий аналіз: я беру кредит 200000 UAH на 24 місяці під 16% річних. Розрахуй мій щомісячний платіж і переплату в UAH, переведи суму переплати в USD, а також перевір показники фонду VOO та акцій KO і порадь, який із цих двох активів має вищу дивідендну дохідність.",
+      "output": "Tool calls: ['calculate_loan_payment', 'get_stock_info', 'get_stock_info']",
+      "tool_calls": [
+        {
+          "name": "calculate_loan_payment",
+          "args": {
+            "term_months": 24,
+            "annual_interest_rate": 16,
+            "loan_amount": 200000
+          }
+        },
+        {
+          "name": "get_stock_info",
+          "args": {
+            "ticker": "VOO"
+          }
+        },
+        {
+          "name": "get_stock_info",
+          "args": {
+            "ticker": "KO"
+          }
+        }
+      ],
+      "timestamp": "2026-11-18T16:21:48.167101+00:00",
+      "duration_ms": 782,
+      "elapsed_ms": 782
+    },
+    {
+      "run_id": "TC-005",
+      "step_number": 1,
+      "node_name": "tools",
+      "input": "calculate_loan_payment({'term_months': 24, 'annual_interest_rate': 16, 'loan_amount': 200000}), get_stock_info({'ticker': 'VOO'}), get_stock_info({'ticker': 'KO'})",
+      "output": "Кредит 200000.00 на 24 міс. під 16.0% річних: Щомісячний платіж = 9792.62 | Загальна сума виплат = 235022.93 | Переплата (відсотки) = 35022.93 | VOO (Vanguard S&P 500 ETF): ціна = $532.00, P/E = 27.1, дивіденди = 1.32%, сектор = Index ETF, рівень ризику = low | KO (The Coca-Cola Company): ціна = $63.10, P/E = 24.5, дивіденди = 3.08%, сектор = Consumer Defensive, рівень ризику = low",
+      "tool_calls": [
+        "calculate_loan_payment",
+        "get_stock_info",
+        "get_stock_info"
+      ],
+      "timestamp": "2026-11-18T16:21:48.175267+00:00",
+      "duration_ms": 15,
+      "elapsed_ms": 797
+    },
+    {
+      "run_id": "TC-005",
+      "step_number": 2,
+      "node_name": "agent",
+      "input": "KO (The Coca-Cola Company): ціна = $63.10, P/E = 24.5, дивіденди = 3.08%, сектор = Consumer Defensive, рівень ризику = low",
+      "output": "Tool calls: ['convert_currency']",
+      "tool_calls": [
+        {
+          "name": "convert_currency",
+          "args": {
+            "to_currency": "USD",
+            "from_currency": "UAH",
+            "amount": 35022.93
+          }
+        }
+      ],
+      "timestamp": "2026-11-18T16:21:50.342962+00:00",
+      "duration_ms": 2155,
+      "elapsed_ms": 2952
+    },
+    {
+      "run_id": "TC-005",
+      "step_number": 2,
+      "node_name": "tools",
+      "input": "convert_currency({'to_currency': 'USD', 'from_currency': 'UAH', 'amount': 35022.93})",
+      "output": "35022.93 UAH = 840.55 USD (курс: 1 UAH = 0.0240 USD)",
+      "tool_calls": [
+        "convert_currency"
+      ],
+      "timestamp": "2026-11-18T16:21:50.348173+00:00",
+      "duration_ms": 16,
+      "elapsed_ms": 2969
+    },
+    {
+      "run_id": "TC-005",
+      "step_number": 3,
+      "node_name": "agent",
+      "input": "35022.93 UAH = 840.55 USD (курс: 1 UAH = 0.0240 USD)",
+      "output": "Ось комплексний аналіз вашого запиту:\n\n### 1. Аналіз кредиту\nДля суми 200,000 UAH на 24 місяці під 16% річних:\n*   **Щомісячний платіж:** 9,792.62 UAH\n*   **Загальна сума виплат:** 235,022.93 UAH\n*   **Переплата (загальні відсотки):** 35,022.93 UAH\n\nПеревівши суму переплати у валюту:\n*   **Переплата в USD:** 840.55 USD (за поточним курсом 1 UAH = 0.0240 USD).\n\n---\n\n### 2. Аналіз активів (VOO vs KO)\nМи порівняли ETF-фонд Vanguard S&P 500 (VOO) та акції компанії The Coca-Cola Company (KO):\n\n| Пока",
+      "tool_calls": [],
+      "timestamp": "2026-11-18T16:21:53.266946+00:00",
+      "duration_ms": 2905,
+      "elapsed_ms": 5875
+    }
+  ]
+}
